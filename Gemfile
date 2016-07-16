@@ -51,4 +51,11 @@ gem 'slim'
 gem 'pundit'
 gem 'devise'
 gem 'kaminari'
-gem 'bourbon'
+
+gem 'bourbon', '~> 5.0.0.beta.6'
+gem 'neat'
+gem 'bitters'
+gem 'refills'
+gem 'normalize-rails'
+
+gem 'react-rails'
