@@ -1,0 +1,47 @@
+body {
+  background-image: url('/assets/pw_maze_black.png');
+  background-repeat: repeat;
+}
+.main-container {
+  @include outer-container;
+  .center-content {
+    & > div {
+      background-color: #fff;
+    }
+    .title{
+      @include row();
+      @include span-columns(12);
+      padding: 15px;
+      h1 {
+        font-size: 2em;
+        margin-bottom: 0;
+        display: inline-block;
+        padding-right: 15px;
+      }
+    }
+    .content {
+      @include row();
+      @include span-columns(12);
+      padding: 15px;
+      .map_canvas{
+        width: 100%;
+        height: 350px;
+      }
+      .row{
+        @include row();
+        @include span-columns(12);
+        margin-top: 15px;
+        .left {
+          @include span-columns(2 of 12);
+          .date {
+            .date-text {
+            }
+          }
+        }
+        .right {
+          @include span-columns(10 of 12);
+        }
+      }
+    }
+  }
+}
