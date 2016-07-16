@@ -1,0 +1,18 @@
+connection: &connection
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: postgres
+  password:
+
+development:
+  <<: *connection
+  database: pokepain_development
+
+test:
+  <<: *connection
+  database: pokepain_test
+
+production:
+  <<: *connection
+  database: pokepain_production
