@@ -1,0 +1,18 @@
+.article-row
+  h2  Articles
+  .pull-right
+    = button_to "New", action: "new"
+  hr
+.article-row
+  table
+    thead
+      th Id
+      th Date
+      th Description
+    tbody
+    - @articles.each do |a|
+      tr
+        td
+          a href="/articles/#{a.id}" #{a.id}
+        td #{a.created_at}
+        td #{a.description}

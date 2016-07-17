@@ -1,0 +1,22 @@
+.article-row {
+  @include span-columns(12);
+  @include omega();
+  padding: 10px;
+  .pull-right {
+    text-align: right;
+  }
+  .pull-left {
+    text-align: left;
+  }
+  hr {
+    margin: .5em 0;
+  }
+  ul {
+    padding-bottom: 20px;
+    li {
+      span.article_title {
+        padding-right: 10px;
+      }
+    }
+  }
+}

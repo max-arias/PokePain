@@ -1,0 +1,26 @@
+.content
+  .article-row
+    fieldset
+      ul
+        li
+          span.article_title Description:
+          span
+            b = @article.description
+        li
+          span.article_title URL:
+          span
+            b = @article.url
+        li
+          span.article_title Video Embed:
+          span
+            b = @article.video_embed
+        li
+          span.article_title Location:
+          span
+            b = @article.location
+        li
+          span.article_title Date of News:
+          span
+            b = @article.date_of_news
+
+      = button_to 'Edit', edit_article_path(@article), :method => :get
