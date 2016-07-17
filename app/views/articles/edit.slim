@@ -1,3 +1,20 @@
 .content
   fieldset
-    = render :partial => 'form'
+    = form_for :article, :url => article_path(@article), method: :put do |f|
+      p
+        = f.label :description
+        = f.text_field :description
+      p
+        = f.label :url
+        = f.text_field :url
+      p
+        = f.label :video_embed
+        = f.text_field :video_embed
+      p
+        = f.label :location
+        = f.text_field :location
+      p
+        = f.label :date_of_news
+        = f.text_field :date_of_news
+      p
+        = f.submit "Submit"

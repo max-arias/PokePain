@@ -29,7 +29,7 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find params[:id]
-    if @article.update_attributes params[:post]
+    if @article.update_attributes article_params
       redirect_to articles_path
     else
       render :action => :edit
