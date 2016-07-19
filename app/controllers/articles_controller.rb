@@ -42,6 +42,10 @@ class ArticlesController < ApplicationController
     redirect_to articles_path
   end
 
+  def locationData
+    render json: Article.all.as_json(only: [:description, :location, :date_of_news, :summary, :url])
+  end
+
   private
 
   def article_params

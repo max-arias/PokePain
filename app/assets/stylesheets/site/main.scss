@@ -27,19 +27,29 @@ body {
         width: 100%;
         height: 350px;
       }
-      .row{
+      .row {
         @include row();
         @include span-columns(12);
-        margin-top: 15px;
+        &.article-row {
+          h3 {
+            margin-bottom: 0;
+          }
+          p {
+            font-size: 12px;
+            margin: 0;
+            padding: 10px;
+            background-color: #f7f7f7;
+          }
+        }
         .left {
-          @include span-columns(2 of 12);
+          @include span-columns(1 of 12);
           .date {
             .date-text {
             }
           }
         }
         .right {
-          @include span-columns(10 of 12);
+          @include span-columns(11 of 12);
         }
       }
     }

@@ -6,10 +6,11 @@
     = react_component('GoogleMapComponent')
     hr
   - @articles.each do |a|
-    .row
+    .row.article-row
       .left
         .date
           h3 #{a.abbr_date}
       .right
         h3
           a target="_blank" href="#{a.url}" "#{a.description}"
+        p #{a.summary}
