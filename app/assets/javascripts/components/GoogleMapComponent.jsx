@@ -14,9 +14,11 @@ var GoogleMapComponent = React.createClass({
 
 
     window.google.maps.event.addDomListener(window, "resize", function() {
-      var center = this.map.getCenter();
-      google.maps.event.trigger(this.map, "resize");
-      this.map.setCenter(center);
+      if(this.map) {
+        var center = this.map.getCenter();
+        google.maps.event.trigger(this.map, "resize");
+        this.map.setCenter(center);
+      }
     });
 
   },
