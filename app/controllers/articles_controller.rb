@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :logged_in_user, except: [:locationData]
+  require 'httparty'
 
   def index
     @articles = Article.all
@@ -15,6 +16,16 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.create(article_params)
+
+    if @article.summary.nil?
+      smmry_key = Rails.application.secrets.smmry_key
+
+      smmry_url = "http://api.smmry.com/?SM_API_KEY=#{smmry_key}&SM_URL=#{@article.url}"
+      response = HTTParty.get(smmry_url)
+      response = response.parsed_response
+
+      @article.summary = response["sm_api_content"] unless response["sm_api_content"].blank?
+    end
 
     if @article.save
       redirect_to @article

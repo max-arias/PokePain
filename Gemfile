@@ -57,3 +57,4 @@ gem 'refills'
 gem 'normalize-rails'
 
 gem 'react-rails'
+gem 'httparty'
