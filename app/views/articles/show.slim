@@ -6,25 +6,31 @@
           span.article_title Description:
           span
             b = @article.description
+          hr
         li
           span.article_title Summary:
           span
             b = @article.summary
+          hr
         li
           span.article_title URL:
           span
             b = @article.url
+          hr
         li
           span.article_title Video Embed:
           span
             b = @article.video_embed
+          hr
         li
           span.article_title Location:
           span
             b = @article.location
+          hr
         li
           span.article_title Date of News:
           span
             b = @article.date_of_news
+          hr
 
       = button_to 'Edit', edit_article_path(@article), :method => :get

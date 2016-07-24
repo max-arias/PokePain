@@ -1,7 +1,8 @@
 .article-row
   h2  Articles
-  .pull-right
-    = button_to "New", action: "new"
+  .pull-right.nav-bar
+    = link_to "New", new_article_path, class: "btn"
+    = link_to "Logout", '/logout', class: "btn secondary"
   hr
 .article-row
   table

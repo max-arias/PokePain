@@ -17,7 +17,7 @@ class ArticlesController < ApplicationController
     @article = Article.create(article_params)
 
     if @article.save
-      redirect_to "/articles/#{@article.id}", :notice => "Article saved!"
+      redirect_to @article
     else
       render "new"
     end
