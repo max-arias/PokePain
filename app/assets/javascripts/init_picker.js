@@ -1,3 +1,3 @@
-$(document).ready(function(){
- flatpickr('.date_of_news_picker');
+$(document).on('turbolinks:load', function(){
+  flatpickr('.date_of_news_picker');
 });

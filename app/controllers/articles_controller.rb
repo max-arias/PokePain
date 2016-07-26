@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   require 'httparty'
 
   def index
-    @articles = Article.all
+    @articles = Article.all.order(id: :desc)
   end
 
   def new
@@ -28,7 +28,7 @@ class ArticlesController < ApplicationController
     end
 
     if @article.save
-      redirect_to @article
+      redirect_to articles_path
     else
       render "new"
     end
@@ -60,6 +60,6 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:description, :url, :video_embed, :location, :date_of_news)
+    params.require(:article).permit(:description, :url, :video_embed, :location, :date_of_news, :summary)
   end
 end
