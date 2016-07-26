@@ -60,6 +60,6 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:description, :url, :video_embed, :location)
+    params.require(:article).permit(:description, :url, :video_embed, :location, :date_of_news)
   end
 end

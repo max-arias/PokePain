@@ -71,6 +71,8 @@ GEM
     debug_inspector (0.0.2)
     erubis (2.7.0)
     execjs (2.7.0)
+    flatpickr_rails (0.0.2)
+      railties (>= 3.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     httparty (0.13.7)
@@ -209,6 +211,7 @@ DEPENDENCIES
   bourbon (~> 5.0.0.beta.6)
   byebug
   coffee-rails (~> 4.2)
+  flatpickr_rails
   httparty
   jbuilder (~> 2.5)
   jquery-rails

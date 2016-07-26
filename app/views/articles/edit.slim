@@ -1,3 +1,7 @@
+= content_for :head do
+  <script type="text/javascript">
+    <%= render :partial => "init_picker.js"
+  </script>
 .content
   fieldset
     = form_for :article, :url => article_path(@article), method: :put do |f|
@@ -18,7 +22,7 @@
         = f.text_field :location
       p
         = f.label :date_of_news
-        = f.text_field :date_of_news, :required => true
+        = f.text_field :date_of_news, :required => true, :class => 'date_of_news_picker'
       p
         = f.submit "Submit"
         = link_to("Remove", article_path(@article), method: :delete, class: "btn secondary")

@@ -58,3 +58,4 @@ gem 'normalize-rails'
 
 gem 'react-rails'
 gem 'httparty'
+gem 'flatpickr_rails'

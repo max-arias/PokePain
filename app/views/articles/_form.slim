@@ -1,3 +1,8 @@
+= content_for :head do
+  <script type="text/javascript">
+    <%= render :partial => "init_picker.js"
+  </script>
+
 = form_for @article do |f|
   p
     = f.label :description
@@ -16,6 +21,6 @@
     = f.text_field :location
   p
     = f.label :date_of_news
-    = f.text_field :date_of_news, :required => true
+    = f.text_field :date_of_news, :required => true, :class => 'date_of_news_picker'
   p
     = f.submit "Submit"
