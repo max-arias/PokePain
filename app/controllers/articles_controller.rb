@@ -17,7 +17,7 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.create(article_params)
 
-    if @article.summary.nil?
+    if @article.summary.blank?
       smmry_key = Rails.application.secrets.smmry_key
 
       smmry_url = "http://api.smmry.com/?SM_API_KEY=#{smmry_key}&SM_URL=#{@article.url}"
