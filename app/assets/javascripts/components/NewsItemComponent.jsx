@@ -25,7 +25,7 @@ var NewsItemComponent = React.createClass({
         </div>
         <div className="right">
           <h3>
-            <a href="{this.state.item.href}" target="_blank">{this.state.item.description}</a>
+            <a href={this.state.item.url} target="_blank">{this.state.item.description}</a>
           </h3>
           <p>{this.state.item.summary}</p>
         </div>

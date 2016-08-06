@@ -5,6 +5,9 @@ body {
 .main-container {
   @include outer-container;
   .center-content {
+    & > div {
+      background-color: #fff;
+    }
     .title{
       @include row();
       @include span-columns(12);
