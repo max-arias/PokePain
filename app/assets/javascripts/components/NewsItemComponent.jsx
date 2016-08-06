@@ -4,14 +4,18 @@ var NewsItemComponent = React.createClass({
   },
   getDateDay: function(day) {
     switch (day) {
-      case 1:
+      case '1':
         return day + 'st';
-      case 2:
+        break;
+      case '2':
         return day + 'nd';
-      case 3:
+        break;
+      case '3':
         return day + 'rd';
+        break;
       default:
         return day ? (day + 'th') : 'N/A';
+        break;
     }
   },
   render: function() {
@@ -27,7 +31,9 @@ var NewsItemComponent = React.createClass({
           <h3>
             <a href={this.state.item.url} target="_blank">{this.state.item.description}</a>
           </h3>
-          <p>{this.state.item.summary}</p>
+          <p>
+            <span>{this.state.item.summary}</span>
+          </p>
         </div>
       </div>
     );
