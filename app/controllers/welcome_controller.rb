@@ -1,11 +1,6 @@
 class WelcomeController < ApplicationController
   def index
-    @articles = get_articles
-  end
-
-  private
-
-  def get_articles
-    Article.all.order(date_of_news: :desc)
+    # return the articles container React component
+    render component: 'ArticlesContainer'
   end
 end

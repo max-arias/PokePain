@@ -54,7 +54,7 @@ class ArticlesController < ApplicationController
   end
 
   def locationData
-    render json: Article.all.as_json(only: [:description, :location, :date_of_news, :summary, :url])
+    render json: Article.all.order(id: :desc).as_json(only: [:description, :location, :date_of_news, :summary, :url, :abbr_date])
   end
 
   private

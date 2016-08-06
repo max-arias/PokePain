@@ -1,23 +1,16 @@
 var GoogleMapComponent = React.createClass({
-  map: null,
+  getInitialState: function() {
+    return { locationData: this.props.locationData, map: null };
+  },
   componentDidMount() {
-    this.map = this.createMap();
-    var self = this;
-
-    $.ajax({
-      type: 'GET',
-      url: '/locationData'
-    })
-    .done(function(data) {
-      self.addLabels(data)
-    })
-
+    this.state.map = this.createMap();
+    this.addLabels();
 
     window.google.maps.event.addDomListener(window, "resize", function() {
-      if(this.map) {
-        var center = this.map.getCenter();
-        google.maps.event.trigger(this.map, "resize");
-        this.map.setCenter(center);
+      if(this.state.map) {
+        var center = this.state.map.getCenter();
+        google.maps.event.trigger(this.state.map, "resize");
+        this.state.map.setCenter(center);
       }
     });
 
@@ -28,10 +21,10 @@ var GoogleMapComponent = React.createClass({
       zoom: 4
     })
   },
-  addLabels(data) {
+  addLabels() {
     var images = ['/assets/icons/1.png', '/assets/icons/2.png', '/assets/icons/3.png'];
-    for(var i = 0; i < data.length; i++) {
-      var item = data[i];
+    for(var i = 0; i < this.state.locationData.length; i++) {
+      var item = this.state.locationData[i];
       if(item.location) {
         item.locParts = item.location.split(",");
 
@@ -45,12 +38,12 @@ var GoogleMapComponent = React.createClass({
           var image = images[Math.floor(Math.random()*images.length)];
           var newMarker = new window.google.maps.Marker({
             position: {lat: Number(item.locParts[0]), lng: Number(item.locParts[1])},
-            map: self.map,
+            map: self.state.map,
             icon: image
           });
 
           newMarker.addListener('click', function() {
-            infowindow.open(self.map, newMarker);
+            infowindow.open(self.state.map, newMarker);
           });
         })(item, images, this);
 
